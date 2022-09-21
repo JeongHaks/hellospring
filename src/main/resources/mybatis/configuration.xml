@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration 
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+  <!--typeAlias , mapper 필수 추가!!-->
+  <typeAliases>
+    <typeAlias alias="guestbooklist" type="com.javaex.vo.GuestbookVo"></typeAlias>
+    <typeAlias alias="emaillist" type="com.javaex.vo.EmaillistVo"></typeAlias>
+  </typeAliases>
+  
+  <mappers>
+    <mapper resource="mybatis/mappers/guestbook.xml" />    
+    <mapper resource="mybatis/mappers/emaillist.xml" /> 
+  </mappers>
+
+</configuration>
+ 
