@@ -16,12 +16,12 @@ public class GuestbookDao {
   @Autowired 
   private SqlSession sqlSession;
 
-  
+  //등록된 게시물 리스트를 보여준다.
   public List<GuestbookVo> getList(){
     System.out.println("----> sqlSession.selectList()");
     System.out.println(sqlSession);
 
-    return sqlSession.selectList("GuestBookXml.selectList");
+    return sqlSession.selectList("GuestBookXml.selectList"); // 쿼리문이 작성된 XML로 값들을 넘겨준다(DB)에 저장.
   }
   
   

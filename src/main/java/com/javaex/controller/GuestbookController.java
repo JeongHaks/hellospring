@@ -33,17 +33,19 @@ public class GuestbookController {
   }
   
   //insert
+  //등록 버튼을 클릭 시 guestform으로 이동
   @RequestMapping(value="/guestform", method=RequestMethod.GET)
   public String form() {
 	  System.out.println("guestform");
 	  return "/WEB-INF/views/guestform.jsp";
   }
+  //필요한 정보를 입력란에 입력 후 확인 !
   @RequestMapping(value="/addd",method=RequestMethod.POST)
   public String add(@ModelAttribute GuestbookVo guestbookVo) {
 	  System.out.println("addd");
 	  System.out.println(guestbookVo.toString());
 	  
-	  guestbookDao.insert(guestbookVo);
+	  guestbookDao.insert(guestbookVo); //입력된 정보를 Dao로 전달 !
 	  return "redirect:/getGuestbookList";
   }
   
@@ -64,6 +66,7 @@ public class GuestbookController {
 	  System.out.println("deletee");
 	  guestbookVo.setNo(no);
 	  guestbookVo.setPassword(pass);
+	  //등록된 비밀 번호와 입력할 비밀번호가 일치한가 안한가 
 	  if(pass.equals(password)) {
 		  guestbookDao.delete(guestbookVo);
 	  }
